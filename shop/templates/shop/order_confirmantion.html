@@ -1,0 +1,9 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<h2>Order Confirmation</h2>
+<p>Thank you for your order! Your order ID is {{ order.id }}.</p>
+<p>Total Price: ${{ order.total_price }}</p>
+{% endblock %}
