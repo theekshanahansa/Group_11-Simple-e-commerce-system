@@ -63,3 +63,12 @@ class CartItem(models.Model):
     def __str__(self):
         return f'{self.quantity} of {self.product.name} in {self.cart.user.username}\'s cart'
 
+
+# User Register model
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15)
+    address = models.TextField()
+
+    def __str__(self):
+        return self.user.username

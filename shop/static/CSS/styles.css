@@ -4,8 +4,7 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
-    padding-top: 50px; /* Adjust based on navbar height */
-
+    padding-top: 30px; /* Adjust based on navbar height */
 }
 
 .navbar {
@@ -62,6 +61,12 @@ body {
     margin-top: 20px;
 }
 
+/* Remove margins for home page */
+.no-margins {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 /* Product Card Styles */
 .card-img-top {
     width: 100%;
@@ -91,6 +96,8 @@ body {
 /* Category Filter Styles */
 .category-filter {
     margin-bottom: 20px;
+    margin-left: 15px; /* Add left margin for category filter */
+    margin-right: 15px; /* Add right margin for category filter */
 }
 
 .category-filter select {
@@ -127,4 +134,31 @@ footer a:hover {
     .hero p {
         font-size: 1.25rem;
     }
+}
+/* static/css/styles.css */
+
+/* Register Page Styles */
+.register-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-register {
+    width: 100%;
+}
+
+
+.btn-register:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
 }
