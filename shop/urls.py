@@ -4,7 +4,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.product_list, name='product_list'),
+
+    path('', views.home, name='home'),
+    path('products/', views.product_list, name='product_list'),
     path('category/<int:category_id>/', views.product_by_category, name='product_by_category'),
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),
     path('register/', views.register, name='register'),
@@ -16,6 +18,7 @@ urlpatterns = [
     path('checkout/', views.checkout, name='checkout'),
     path('order_confirmation/<int:order_id>/', views.order_confirmation, name='order_confirmation'),
 ]
+
 
 # Serve media files during development
 if settings.DEBUG:
