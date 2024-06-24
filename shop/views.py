@@ -31,11 +31,14 @@ def login_view(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            auth_login(request, user)
-            return redirect('product_list')  # Redirect to product list after successful login
+            login(request, user)
+            return redirect('home')  # Redirect to home or another page
         else:
-            return render(request, 'shop/login.html', {'error': 'Invalid username or password'})
-    return render(request, 'shop/login.html')
+            # Handle invalid login
+            return render(request, 'shop/login.html', {'error': 'Invalid username or password.'})
+    else:
+        return render(request, 'shop/login.html')
+
 
 
 # User logout view

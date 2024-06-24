@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Customer
 
+
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     shipping_address = forms.CharField(widget=forms.Textarea, required=True)
@@ -18,6 +19,7 @@ class UserRegistrationForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
-            customer = Customer(user=user, shipping_address=self.cleaned_data['shipping_address'], phone_number=self.cleaned_data['phone_number'])
+            customer = Customer(user=user, shipping_address=self.cleaned_data['shipping_address'],
+                                phone_number=self.cleaned_data['phone_number'])
             customer.save()
         return user
