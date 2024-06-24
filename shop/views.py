@@ -5,6 +5,10 @@ from .models import Category, Product, Cart, CartItem, Order, OrderItem
 from django.contrib.auth.decorators import login_required
 
 
+def home(request):
+    return render(request, 'shop/home.html')
+
+
 # User registration view
 def register(request):
     if request.method == 'POST':
