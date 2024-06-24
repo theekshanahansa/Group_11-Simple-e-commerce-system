@@ -3,22 +3,21 @@ from django.contrib.auth import login as auth_login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from .models import Category, Product, Cart, CartItem, Order, OrderItem
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from .forms import UserRegistrationForm
 
 
 def home(request):
     return render(request, 'shop/home.html')
 
 
-# User registration view
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Optionally log the user in after registration
+            login(request, user)  # Log the user in after registration
             return redirect('home')  # Redirect to a success page
     else:
         form = UserRegistrationForm()

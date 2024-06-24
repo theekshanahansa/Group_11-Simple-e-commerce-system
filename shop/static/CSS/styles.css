@@ -138,27 +138,88 @@ footer a:hover {
 /* static/css/styles.css */
 
 /* Register Page Styles */
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 56px; /* Adjust based on navbar height */
+}
+
+.navbar {
+    background-color: #343a40; /* Dark background for navbar */
+}
+
+.navbar-brand {
+    color: #ffffff !important; /* White color for navbar brand */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* White color for navbar links */
+}
+
+.btn-primary {
+    background-color: #dc3545; /* Red color for primary buttons */
+    border-color: #dc3545; /* Red color for button borders */
+}
+
+.btn-primary:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130; /* Darker red for border on hover */
+}
+
+/* Register Page Styles */
 .register-container {
-    max-width: 600px;
-    margin: 50px auto;
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .register-title {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2rem;
+    color: #343a40;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
 }
 
 .btn-register {
     width: 100%;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
 }
-
 
 .btn-register:hover {
     background-color: #c82333;
     border-color: #bd2130;
 }
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #c82333;
+    text-decoration: underline;
+}}
