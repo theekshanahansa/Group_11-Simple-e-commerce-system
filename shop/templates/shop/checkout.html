@@ -1,81 +1,73 @@
-{% extends 'shop/base.html' %}
-
+<!DOCTYPE html>
 {% load static %}
 
-{% block title %}Checkout - Gameday{% endblock %}
-
-{% block extra_styles %}
-<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
-{% endblock %}
-
-{% block content %}
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="row g-0">
-                    <div class="col-md-4 d-flex align-items-center justify-content-center">
-                        <img src="https://via.placeholder.com/150" class="img-fluid rounded" alt="Checkout Image">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h2 class="card-title">Checkout</h2>
-                            <form method="post">
-                                {% csrf_token %}
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="payment-method" class="form-label">Payment Method</label>
-                                    <select class="form-control" id="payment-method" name="payment-method" required>
-                                        <option value="credit-card">Credit Card</option>
-                                        <option value="paypal">PayPal</option>
-                                        <option value="bank-transfer">Bank Transfer</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="card-details" class="form-label">Card Details</label>
-                                    <input type="text" class="form-control" id="card-details" name="card-details" required>
-                                </div>
-                                <h4 class="text-end">Total: $<span id="total-price">{{ cart.total_price }}</span></h4>
-                                <button type="submit" class="btn btn-success btn-block">Confirm Order</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Order Summary Section -->
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h3 class="card-title">Order Summary</h3>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Loop through the cart items and display them -->
-                            {% for item in cart.items %}
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="{{ item.product.image.url }}" class="img-thumbnail" alt="{{ item.product.name }}" style="width: 60px; height: 60px;">
-                                <div class="ms-3">
-                                    <h5 class="mb-0">{{ item.product.name }}</h5>
-                                    <p class="mb-0 text-muted">Quantity: {{ item.quantity }}</p>
-                                    <p class="mb-0 text-muted">Price: ${{ item.product.price }}</p>
-                                </div>
-                                <div class="ms-auto">
-                                    <p class="mb-0"><strong>${{ item.quantity|floatformat:2|add:item.product.price|floatformat:2 }}</strong></p>
-                                </div>
-                            </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Checkout</h1>
+        <div class="checkout-container">
+            <div class="card shadow p-4 mb-4">
+                <h3 class="mb-4">Order Summary</h3>
+                <div class="cart-table-container mb-4">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart.cartitem_set.all %}
+                            <tr>
+                                <td>
+                                    <div class="product-item d-flex align-items-center">
+                                        <img src="{{ item.product.image.url }}" class="product-image img-thumbnail" alt="{{ item.product.name }}" style="width: 60px; height: 60px;">
+                                        <div class="product-details ms-3">
+                                            <h5 class="product-name">{{ item.product.name }}</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ item.quantity }}</td>
+                                <td>${{ item.product.price }}</td>
+                            </tr>
                             {% endfor %}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <h4>Total:</h4>
-                        <h4><strong>${{ cart.total_price }}</strong></h4>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
+                <div class="d-flex justify-content-between mb-4">
+                    <h4>Total:</h4>
+                    <h4><strong>${{ cart.get_total_price }}</strong></h4>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="payment-method" class="form-label">Payment Method</label>
+                        <input type="text" class="form-control" id="payment-method" name="payment-method" value="Cash on Delivery" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-name" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="user-name" name="user-name" value="{{ user.username }}" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Confirm Order</button>
+                </form>
             </div>
         </div>
+        <a href="{% url 'view_cart' %}" class="btn btn-secondary">Back to Cart</a>
     </div>
-</div>
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -39,7 +39,6 @@ def login_view(request):
         return render(request, 'shop/login.html')
 
 
-
 # User logout view
 def logout_view(request):
     logout(request)
@@ -100,22 +99,49 @@ def order_confirmation(request, order_id):
 
 
 # View to handle checkout
+# shop/views.py
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Cart, Order, OrderItem, CartItem, Customer
+
+
 @login_required
 def checkout(request):
-    cart = Cart.objects.get(user=request.user)
+    try:
+        cart = Cart.objects.get(user=request.user)
+    except Cart.DoesNotExist:
+        cart = None
+
     if request.method == 'POST':
-        order = Order.objects.create(user=request.user, total_price=0)
-        total_price = 0
-        for item in CartItem.objects.filter(cart=cart):
-            OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity,
-                                     price=item.product.price)
-            total_price += item.product.price * item.quantity
-            item.delete()
-        order.total_price = total_price
-        order.save()
-        cart.delete()
+        address = request.POST['address']
+        payment_method = request.POST['payment-method']
+
+        # Create an order
+        order = Order.objects.create(
+            user=request.user,
+            total_price=cart.get_total_price()
+        )
+
+        # Create order items from cart items
+        for item in cart.cartitem_set.all():
+            OrderItem.objects.create(
+                order=order,
+                product=item.product,
+                quantity=item.quantity,
+                price=item.product.price
+            )
+
+        # Clear the cart
+        cart.cartitem_set.all().delete()
+
+        # Redirect to order confirmation page
         return redirect('order_confirmation', order_id=order.id)
-    return render(request, 'shop/checkout.html')
+
+    context = {
+        'cart': cart,
+        'user': request.user
+    }
+    return render(request, 'shop/checkout.html', context)
 
 
 # View to show order confirmation
