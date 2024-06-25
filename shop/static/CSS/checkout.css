@@ -77,6 +77,36 @@ body {
     border-radius: 10px;
 }
 
+.img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
 .text-end {
     text-align: right;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.ms-3 {
+    margin-left: 1rem;
+}
+
+.ms-auto {
+    margin-left: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
 }

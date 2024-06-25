@@ -1,6 +1,12 @@
 {% extends 'shop/base.html' %}
 
+{% load static %}
+
 {% block title %}Checkout - Gameday{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="container mt-4">
@@ -56,7 +62,7 @@
                                     <p class="mb-0 text-muted">Price: ${{ item.product.price }}</p>
                                 </div>
                                 <div class="ms-auto">
-                                    <p class="mb-0"><strong>${{ item.quantity|floatformat:2|add:item.quantity|floatformat:2 }}</strong></p>
+                                    <p class="mb-0"><strong>${{ item.quantity|floatformat:2|add:item.product.price|floatformat:2 }}</strong></p>
                                 </div>
                             </div>
                             {% endfor %}
