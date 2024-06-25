@@ -1,61 +1,39 @@
-<!-- shop/templates/shop/register.html -->
-<!DOCTYPE html>
-<html lang="en">
+{% extends "shop/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Gameday</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+{% block title %}Register - Gameday{% endblock %}
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="{% url 'home' %}">Gameday</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'view_cart' %}">Cart</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container register-container">
-        <h2 class="register-title">Create Your Account</h2>
+{% block content %}
+<div class="auth-container">
+    <div class="auth-form-wrapper">
+        <h2 class="auth-title">Create Your Account</h2>
         <form method="post" action="{% url 'register' %}">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary btn-register">Register</button>
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+            <div class="form-group">
+                {{ form.shipping_address.label_tag }}
+                {{ form.shipping_address }}
+            </div>
+            <div class="form-group">
+                {{ form.phone_number.label_tag }}
+                {{ form.phone_number }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
     </div>
-
-    <footer class="mt-5">
-        <p>&copy; 2024 Gameday. All rights reserved.</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-    </footer>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+</div>
+{% endblock %}
