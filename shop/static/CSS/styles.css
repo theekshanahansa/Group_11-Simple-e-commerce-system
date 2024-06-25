@@ -213,3 +213,71 @@ footer a:hover {
 .auth-form-wrapper .btn-primary:hover {
     background: #0056b3;
 }
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.cart-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.table {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+.table th, .table td {
+    border: none;
+    vertical-align: middle;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-price {
+    color: #6c757d;
+}
+
+.btn-primary, .btn-secondary {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        width: 60px;
+        height: 60px;
+    }
+}
