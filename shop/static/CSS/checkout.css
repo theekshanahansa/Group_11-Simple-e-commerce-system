@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #d4d4d4; /* Updated background color */
+    padding-top: 56px; /* Adjust based on navbar height */
+    margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #ffd335; /* Dark background for navbar */
+}
+
+.navbar-brand {
+    color: #ffffff !important; /* White color for navbar brand */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* White color for navbar links */
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #dc3545; /* Red color for primary buttons */
+    border-color: #dc3545; /* Red color for button borders */
+}
+
+.btn-primary:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130; /* Darker red for border on hover */
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Card Styles */
+.card {
+    border: none; /* Remove default card border */
+    border-radius: 10px; /* Add rounded corners to cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px; /* Add padding inside the card body */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Larger font size for the card title */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+}
+
+/* Checkout Page Styles */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.img-fluid.rounded {
+    border-radius: 10px;
+}
+
+.text-end {
+    text-align: right;
+}
