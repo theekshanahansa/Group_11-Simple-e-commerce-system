@@ -94,8 +94,16 @@ def view_cart(request):
 
 @login_required
 def order_confirmation(request, order_id):
-    order = get_object_or_404(Order, id=order_id, user=request.user)
-    return render(request, 'shop/order_confirmation.html', {'order': order})
+    order = get_object_or_404(Order, id=order_id)
+
+    # Calculate total price for each order item
+    for item in order.orderitem_set.all():
+        item.total = item.quantity * item.price  # Calculate total price for the item
+
+    context = {
+        'order': order,
+    }
+    return render(request, 'shop/order_confirmation.html', context)
 
 
 # View to handle checkout

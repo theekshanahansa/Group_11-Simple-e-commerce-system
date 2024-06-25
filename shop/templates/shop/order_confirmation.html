@@ -1,7 +1,4 @@
-
 <!DOCTYPE html>
-{% load custom_filters %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +42,7 @@
                             <td>{{ item.product.name }}</td>
                             <td>{{ item.quantity }}</td>
                             <td>${{ item.price }}</td>
-                            <td>${{ item.quantity|multiply:item.price }}</td>
+                            <td>${{ item.total }}</td>  <!-- Display calculated total here -->
                         </tr>
                         {% endfor %}
                     </tbody>
