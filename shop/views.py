@@ -94,15 +94,14 @@ def view_cart(request):
 
 @login_required
 def order_confirmation(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
+    order = get_object_or_404(Order, id=order_id, user=request.user)
     return render(request, 'shop/order_confirmation.html', {'order': order})
 
 
 # View to handle checkout
-# shop/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Cart, Order, OrderItem, CartItem, Customer
+from .models import Cart, Order, OrderItem, Customer
 
 
 @login_required
@@ -112,9 +111,16 @@ def checkout(request):
     except Cart.DoesNotExist:
         cart = None
 
+    customer, created = Customer.objects.get_or_create(user=request.user)
+
     if request.method == 'POST':
         address = request.POST['address']
         payment_method = request.POST['payment-method']
+
+        # Save the new address if it's different from the current one
+        if address != customer.shipping_address:
+            customer.shipping_address = address
+            customer.save()
 
         # Create an order
         order = Order.objects.create(
@@ -139,7 +145,8 @@ def checkout(request):
 
     context = {
         'cart': cart,
-        'user': request.user
+        'user': request.user,
+        'address': customer.shipping_address
     }
     return render(request, 'shop/checkout.html', context)
 
