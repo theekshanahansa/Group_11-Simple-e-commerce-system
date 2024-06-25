@@ -1,0 +1,87 @@
+/* static/css/styles.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #ffd335; /* Dark background for navbar */
+}
+
+.navbar-brand {
+    color: #ffffff !important; /* White color for navbar brand */
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* White color for navbar links */
+}
+
+.btn-primary {
+    background-color: #dc3545; /* Red color for primary buttons */
+    border-color: #dc3545; /* Red color for button borders */
+}
+
+.btn-primary:hover {
+    background-color: #c82333; /* Darker red on hover */
+    border-color: #bd2130; /* Darker red for border on hover */
+}
+
+/* Auth Page Styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #70e1f5, #ffd194);
+    padding: 20px;
+}
+
+.auth-form-wrapper {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.auth-form-wrapper .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-form-wrapper .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.auth-form-wrapper .btn-primary {
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.auth-form-wrapper .btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
