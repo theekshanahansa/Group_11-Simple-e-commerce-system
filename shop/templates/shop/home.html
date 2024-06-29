@@ -8,11 +8,59 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/homestyles.css' %}">
+    <style>
+        .hero {
 
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            color: white;
+        }
+
+        .hero-content {
+            padding-top: 150px;
+        }
+
+        .category-filter {
+            text-align: center;
+        }
+
+        .category-card {
+            border: none;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffc107;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">Gameday</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,28 +97,111 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <div class="category-filter mt-5">
-            <h2>Shop by Category</h2>
-            <select id="categorySelect" class="form-control">
-                <option value="">Select a category</option>
-                <option value="1">Football</option>
-                <option value="2">Basketball</option>
-                <option value="3">Tennis</option>
-                <option value="4">Running</option>
-                <option value="5">Swimming</option>
-                <option value="6">Golf</option>
-                <option value="7">Cycling</option>
-                <option value="8">Baseball</option>
-                <option value="9">Hiking</option>
-                <option value="10">Gym & Fitness</option>
-            </select>
+    <div class="container mt-5">
+        <h2 class="text-center">Featured Products</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static 'images/product1.jpg' %}" class="card-img-top" alt="Product 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Boldfit Water Bottles Stainless Steel Water Bottle</h5>
+                        <p class="card-text">LKR, 5,048.98</p>
+                        <a href="#" class="btn btn-primary">View Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static 'images/product2.jpg' %}" class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Under Armour Unisex-Adult Lockdown 6 Basketball Shoe</h5>
+                        <p class="card-text">LKR, 16599.00</p>
+                        <a href="{% url 'product_detail' product_id=product.id %}" class="btn btn-primary">View Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static 'images/product3.jpg' %}" class="card-img-top" alt="Product 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Source Sports Goods Youth Gifts Soccer Ball Football</h5>
+                        <p class="card-text">LKR, 4504.57</p>
+                        <a href="#" class="btn btn-primary">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Popular Categories</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card category-card">
+                    <img src="{% static 'images/football.jpg' %}" class="card-img-top" alt="Football">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Football</h5>
+                        <a href="{% url 'product_by_category' 1 %}" class="btn btn-secondary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card category-card">
+                    <img src="{% static 'images/basketball.jpg' %}" class="card-img-top" alt="Basketball">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Basketball</h5>
+                        <a href="{% url 'product_by_category' 2 %}" class="btn btn-secondary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card category-card">
+                    <img src="{% static 'images/tennis.jpg' %}" class="card-img-top" alt="Tennis">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tennis</h5>
+                        <a href="{% url 'product_by_category' 3 %}" class="btn btn-secondary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card category-card">
+                    <img src="{% static 'images/running.jpg' %}" class="card-img-top" alt="Running">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Running</h5>
+                        <a href="{% url 'product_by_category' 4 %}" class="btn btn-secondary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Customer Testimonials</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Great quality products and fast delivery. Highly recommend!"</p>
+                    <strong>- John Doe</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"Excellent customer service and amazing prices."</p>
+                    <strong>- Jane Smith</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"I always find what I need at Gameday. Fantastic selection!"</p>
+                    <strong>- Mike Johnson</strong>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer class="mt-5">
         <p>&copy; 2024 Gameday. All rights reserved.</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

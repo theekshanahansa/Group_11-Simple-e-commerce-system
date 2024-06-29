@@ -58,9 +58,13 @@ def product_by_category(request, category_id):
 
 
 # View to show product details
+# views.py
+from .models import Product
+
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    return render(request, 'shop/product_detail.html', {'product': product})
+    related_products = Product.objects.filter(category=product.category).exclude(id=product_id)[:3]
+    return render(request, 'shop/product_detail.html', {'product': product, 'related_products': related_products})
 
 
 # View to add a product to the cart
