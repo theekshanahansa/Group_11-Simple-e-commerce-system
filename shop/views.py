@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
+from .models import Category, Product
 
 
 def home(request):
@@ -171,10 +172,6 @@ def checkout(request):
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'shop/order_confirmation.html', {'order': order})
-
-
-from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
 
 
 def products_by_category(request, category_id):
