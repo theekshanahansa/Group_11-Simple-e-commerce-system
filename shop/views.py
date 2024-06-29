@@ -171,3 +171,13 @@ def checkout(request):
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'shop/order_confirmation.html', {'order': order})
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Category, Product
+
+
+def products_by_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    products = Product.objects.filter(category=category)
+    return render(request, 'shop/products_by_category.html', {'category': category, 'products': products})
