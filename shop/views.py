@@ -8,7 +8,8 @@ from .forms import UserRegistrationForm
 
 
 def home(request):
-    return render(request, 'shop/home.html')
+    featured_products = Product.objects.filter(id__in=[13, 8, 12]).union(Product.objects.all()[:0])
+    return render(request, 'shop/home.html', {'featured_products': featured_products})
 
 
 def register(request):
@@ -60,6 +61,7 @@ def product_by_category(request, category_id):
 # View to show product details
 # views.py
 from .models import Product
+
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -115,6 +117,7 @@ def order_confirmation(request, order_id):
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Cart, Order, OrderItem, Customer
+
 
 @login_required
 def checkout(request):

@@ -136,3 +136,45 @@ footer a:hover {
         font-size: 1.25rem;
     }
 }
+/* Additional Styles for Popular Categories */
+
+.category-card {
+    border: none;
+    transition: transform 0.3s ease;
+    margin-left:50px;
+    margin-right: 50px
+
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.category-card .btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.category-card .btn-primary:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.popular-categories {
+    background-color: #007bff; /* Blue background color */
+    padding: 20px 0; /* Adjust padding as needed */
+    margin-left: 100px;
+    margin-right:50px;
+
+}
