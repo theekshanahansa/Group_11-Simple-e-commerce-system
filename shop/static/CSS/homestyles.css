@@ -117,13 +117,13 @@ footer a {
 }
 
 .card .btn {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #f79420;
+    border-color: #f79420;
 }
 
 .card .btn:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
+    background-color: black;
+    border-color: black;
 }
 
 /* Category Filter Styles */
