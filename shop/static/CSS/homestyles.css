@@ -4,6 +4,10 @@ body {
     background-color: #ffffff;
     padding-top: 30px; /* Adjust based on navbar height */
 }
+.container-fluid {
+    padding-left: 60px;
+    padding-right: 60px;
+}
 
 .navbar {
     background-color: #ffffff; /* Ensure this color is correct */

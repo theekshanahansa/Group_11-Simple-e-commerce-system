@@ -48,11 +48,11 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container-fluid mt-3  no-margins">
         <h2 class="text-center">Featured Products</h2>
         <div class="row">
             {% for product in featured_products %}
-            <div class="col-md-4">
+            <div class="col-md-3 mb-4">
                 <div class="card mb-4">
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     <div class="card-body text-center">
