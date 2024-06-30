@@ -3,30 +3,30 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #d4d4d4;
+    background-color: #ffffff;
     padding-top: 30px; /* Adjust based on navbar height */
 }
 
 .navbar {
-    background-color: #343a40; /* Dark background for navbar */
+    background-color: ffffff; /* Dark background for navbar */
 }
 
 .navbar-brand {
-    color: #ffffff !important; /* White color for navbar brand */
+    color: #f79420 !important; /* White color for navbar brand */
 }
 
 .navbar-nav .nav-link {
-    color: #ffffff !important; /* White color for navbar links */
+    color: #f79420 !important; /* White color for navbar links */
 }
 
 .btn-primary {
-    background-color: #dc3545; /* Red color for primary buttons */
-    border-color: #dc3545; /* Red color for button borders */
+    background-color: #f79420; /* Red color for primary buttons */
+    border-color: #f79420; /* Red color for button borders */
 }
 
 .btn-primary:hover {
-    background-color: #c82333; /* Darker red on hover */
-    border-color: #bd2130; /* Darker red for border on hover */
+    background-color: #e46d1e; /* Darker red on hover */
+    border-color: #d87d1c; /* Darker red for border on hover */
 }
 
 /* Home Page Styles */
@@ -117,7 +117,7 @@ footer {
 }
 
 footer a {
-    color: #dc3545;
+    color: #ffffff;
     text-decoration: none;
 }
 
