@@ -8,58 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/homestyles.css' %}">
-    <style>
-        .hero {
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            color: white;
-        }
-
-        .hero-content {
-            padding-top: 150px;
-        }
-
-        .category-filter {
-            text-align: center;
-        }
-
-        .category-card {
-            border: none;
-        }
-
-        .testimonial {
-            background: #f8f9fa;
-            padding: 40px;
-            margin: 20px 0;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        footer {
-            background: #343a40;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer a {
-            color: #ffc107;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">Gameday</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +38,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-4 no-margins">
+    <div class="container-fluid no-padding">
         <div class="hero">
             <div class="hero-content text-center">
                 <h1>Welcome to Gameday</h1>
@@ -113,8 +65,9 @@
             {% endfor %}
         </div>
     </div>
-    <div class=" popular-categories">
-         <h2 class="text-center text-white mb-4">Popular Categories</h2>
+
+    <div class="popular-categories">
+        <h2 class="text-center text-white mb-4">Popular Categories</h2>
         <div class="row">
             <div class="col-md-3">
                 <div class="card category-card">
@@ -153,7 +106,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="container mt-5">
@@ -181,8 +133,43 @@
     </div>
 
     <footer class="mt-5">
-        <p>&copy; 2024 Gameday. All rights reserved.</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>123 Sports Avenue, Colombo, Sri Lanka</li>
+                        <li>Email: support@gameday.com</li>
+                        <li>Phone: +94 77 123 4567</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/instagram.png' %}" alt="Instagram" width="24" height="24"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; 2024 Gameday. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
