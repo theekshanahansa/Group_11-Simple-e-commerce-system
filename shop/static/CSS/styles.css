@@ -118,6 +118,12 @@ body {
 }
 
 
+.popular-categories {
+    background-color: #007bff; /* Blue background color */
+    padding: 20px 0; /* Adjust padding as needed */
+    margin-left: -15px; /* Remove default container padding */
+    margin-right: -15px; /* Remove default container padding */
+}
 
 /* Category Filter Styles */
 .category-filter {

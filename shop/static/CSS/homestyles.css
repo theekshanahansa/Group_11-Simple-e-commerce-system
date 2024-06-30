@@ -81,6 +81,7 @@ body {
 
 .card-text {
     font-size: 1rem;
+    color:#6c757d;
 }
 
 .card .btn {
@@ -134,4 +135,46 @@ footer a:hover {
     .hero p {
         font-size: 1.25rem;
     }
+}
+/* Additional Styles for Popular Categories */
+
+.category-card {
+    border: none;
+    transition: transform 0.3s ease;
+    margin-left:30px;
+    margin-right: 30px
+
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-card .card-img-top {
+    height: 350px;
+    object-fit: cover;
+}
+
+.category-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.category-card .btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.category-card .btn-primary:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.popular-categories {
+    background-color: black; /* Blue background color */
+    padding: 20px 0; /* Adjust padding as needed */
+    margin-left: 0px;
+    margin-right:-0px;
+
 }

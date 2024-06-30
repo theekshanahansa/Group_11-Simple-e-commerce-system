@@ -5,10 +5,12 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
+from .models import Category, Product
 
 
 def home(request):
-    return render(request, 'shop/home.html')
+    featured_products = Product.objects.filter(id__in=[13, 8, 12]).union(Product.objects.all()[:0])
+    return render(request, 'shop/home.html', {'featured_products': featured_products})
 
 
 def register(request):
@@ -58,9 +60,14 @@ def product_by_category(request, category_id):
 
 
 # View to show product details
+# views.py
+from .models import Product
+
+
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    return render(request, 'shop/product_detail.html', {'product': product})
+    related_products = Product.objects.filter(category=product.category).exclude(id=product_id)[:3]
+    return render(request, 'shop/product_detail.html', {'product': product, 'related_products': related_products})
 
 
 # View to add a product to the cart
@@ -111,6 +118,7 @@ def order_confirmation(request, order_id):
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Cart, Order, OrderItem, Customer
+
 
 @login_required
 def checkout(request):
@@ -164,3 +172,9 @@ def checkout(request):
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     return render(request, 'shop/order_confirmation.html', {'order': order})
+
+
+def products_by_category(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    products = Product.objects.filter(category=category)
+    return render(request, 'shop/products_by_category.html', {'category': category, 'products': products})
