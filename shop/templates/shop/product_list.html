@@ -5,7 +5,7 @@
 {% block content %}
 <div class="row">
     <!-- Product Filters (Left Side) -->
-    <div class="container-fluid mt-3">
+    <div class="col-lg-3 col-md-4 col-sm-12 mt-3">
         <div class="card mb-4">
             <h5 class="card-header">Filter by Category</h5>
             <div class="card-body">
@@ -18,27 +18,14 @@
                 </ul>
             </div>
         </div>
-
-        <div class="card mb-4">
-            <h5 class="card-header">Filter by Price Range</h5>
-            <div class="card-body">
-                <!-- Example of filtering by price range -->
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Under $50</a></li>
-                    <li class="list-group-item"><a href="#">$50 - $100</a></li>
-                    <li class="list-group-item"><a href="#">Over $100</a></li>
-                </ul>
-            </div>
-        </div>
-
         <!-- Additional filters can be added here -->
     </div>
 
     <!-- Product Cards (Main Content) -->
-    <div class="container-fluid mt-3">
+    <div class=" container-fluid mt-3  no-margins">
         <div class="row">
             {% for product in products %}
-            <div class="col-md-3 mb-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card h-100">
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     <div class="card-body">
