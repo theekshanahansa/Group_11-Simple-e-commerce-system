@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
 from .models import Category, Product
-
+from .models import Product, Category, Review
 
 def home(request):
     featured_products = Product.objects.filter(id__in=[13, 10, 8, 12, 5, 6]).union(Product.objects.all()[:0])
@@ -80,11 +80,19 @@ def product_by_category(request, category_id):
 # views.py
 from .models import Product
 
+4
+
 
 def product_detail(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     related_products = Product.objects.filter(category=product.category).exclude(id=product_id)[:3]
-    return render(request, 'shop/product_detail.html', {'product': product, 'related_products': related_products})
+
+    context = {
+        'product': product,
+        'related_products': related_products,
+    }
+
+    return render(request, 'shop/product_detail.html', context)
 
 
 # View to add a product to the cart
