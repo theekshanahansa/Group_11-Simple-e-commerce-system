@@ -27,6 +27,7 @@ body {
 }
 
 .btn-primary:hover {
+    margin:auto;
     background-color: #000000; /* Darker red on hover */
     border-color: #ffffff; /* Darker red for border on hover */
 }
@@ -40,14 +41,16 @@ body {
 
 /* Card Styles */
 .card {
-    border: none; /* Remove default card border */
-    border-radius: 10px; /* Add rounded corners to cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
-
 .card-body {
-    padding: 20px; /* Add padding inside the card body */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .card-title {
@@ -127,7 +130,28 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+.card-filter {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 56px; /* Adjust based on your navbar height */
+}
+.filter-container {
+    margin-bottom: 20px;
+    padding: 15px;
+}
 
+.form-range {
+    width: 100%;
+}
+
+.filter-label {
+    font-weight: bold;
+}
+
+.filter-price-range {
+    display: flex;
+    justify-content: space-between;
+}
 /* Footer Styles */
 footer {
     background-color: #343a40;
