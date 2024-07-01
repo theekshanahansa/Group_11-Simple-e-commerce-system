@@ -22,12 +22,12 @@ body {
 
 /* Button Styles */
 .btn-primary {
+    margin-top: 10px;
     background-color: #f79420; /* Red color for primary buttons */
     border-color: #f79420; /* Red color for button borders */
 }
 
 .btn-primary:hover {
-    margin:auto;
     background-color: #000000; /* Darker red on hover */
     border-color: #ffffff; /* Darker red for border on hover */
 }
