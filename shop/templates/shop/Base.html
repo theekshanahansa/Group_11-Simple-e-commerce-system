@@ -6,34 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Gameday{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <style>
-        body {
-            padding-top: 56px; /* Adjust based on navbar height */
-        }
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-        .navbar {
-            background-color: #343a40; /* Dark background for navbar */
-        }
-
-        .navbar-brand {
-            color: #ffffff !important; /* White color for navbar brand */
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff !important; /* White color for navbar links */
-        }
-
-        .btn-primary {
-            background-color: #dc3545; /* Red color for primary buttons */
-            border-color: #dc3545; /* Red color for button borders */
-        }
-
-        .btn-primary:hover {
-            background-color: #c82333; /* Darker red on hover */
-            border-color: #bd2130; /* Darker red for border on hover */
-        }
-    </style>
 </head>
 
 <body>
@@ -64,10 +38,48 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-4 container-custom">
         {% block content %}{% endblock %}
     </div>
-
+        <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>123 Sports Avenue, Colombo, Sri Lanka</li>
+                        <li>Email: support@gameday.com</li>
+                        <li>Phone: +94 77 123 4567</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/instagram.png' %}" alt="Instagram" width="24" height="24"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; 2024 Gameday. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

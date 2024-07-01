@@ -9,7 +9,7 @@ from .models import Category, Product
 
 
 def home(request):
-    featured_products = Product.objects.filter(id__in=[13,10, 8, 12,5 ,6]).union(Product.objects.all()[:0])
+    featured_products = Product.objects.filter(id__in=[13, 10, 8, 12, 5, 6]).union(Product.objects.all()[:0])
     return render(request, 'shop/home.html', {'featured_products': featured_products})
 
 
@@ -47,10 +47,27 @@ def logout_view(request):
     return redirect('product_list')
 
 
-# View to list all products
 def product_list(request):
+    category = request.GET.get('category', 'all')
+    price = request.GET.get('price', 60000)
+
     products = Product.objects.all()
-    return render(request, 'shop/product_list.html', {'products': products})
+
+    if category and category != 'all':
+        products = products.filter(category__name=category)
+
+    if price:
+        max_price = int(price)
+        products = products.filter(price__lte=max_price)
+
+    categories = Category.objects.all()
+
+    context = {
+        'products': products,
+        'categories': categories,
+    }
+
+    return render(request, 'shop/product_list.html', context)
 
 
 # View to list products by category
