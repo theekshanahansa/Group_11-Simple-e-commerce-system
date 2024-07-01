@@ -9,7 +9,6 @@
         <div class="card mb-4">
             <h5 class="card-header">Filter by Category</h5>
             <div class="card-body">
-                <!-- Example of filtering by category -->
                 <ul class="list-group">
                     <li class="list-group-item"><a href="#">Football</a></li>
                     <li class="list-group-item"><a href="#">Basketball</a></li>
@@ -18,21 +17,31 @@
                 </ul>
             </div>
         </div>
-        <!-- Additional filters can be added here -->
+        <div class="card mb-4">
+            <h5 class="card-header">Filter by Price</h5>
+            <div class="card-body">
+                <label for="priceRange">Price range:</label>
+                <input type="range" class="form-range" min="0" max="10000" id="priceRange">
+                <div class="d-flex justify-content-between">
+                    <span>0</span>
+                    <span>10000</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Product Cards (Main Content) -->
-    <div class=" container-fluid mt-3  no-margins">
+    <div class="col-lg-9 col-md-8 col-sm-12 mt-3">
         <div class="row">
             {% for product in products %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card h-100 shadow-sm">
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text"><strong>LKR {{ product.price }}</strong></p>
-                        <a href="{% url 'product_detail' product_id=product.id %}" class="btn btn-primary">View Details</a>
+                        <a href="{% url 'product_detail' product_id=product.id %}" class="btn btn-primary btn-block">View Details</a>
                     </div>
                 </div>
             </div>
@@ -40,4 +49,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

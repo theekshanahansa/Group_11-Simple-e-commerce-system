@@ -3,20 +3,17 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #ffffff; /* Updated background color */
     padding-top: 56px; /* Adjust based on navbar height */
-    margin-left:10px
+    margin-left:0px
 }
-.container-fluid {
-    padding-left: 60px;
-    padding-right: 60px;
-}
+
 
 /* Navbar Styles */
 .navbar {
-    background-color: #ffffff; /* Dark background for navbar */
+    background-color: #f79420; /* Dark background for navbar */
 }
 
 .navbar-brand {
-    color: #f79420 !important; /* White color for navbar brand */
+    color: #ffffff !important; /* White color for navbar brand */
 }
 
 .navbar-nav .nav-link {
@@ -25,19 +22,21 @@ body {
 
 /* Button Styles */
 .btn-primary {
-    background-color: #dc3545; /* Red color for primary buttons */
-    border-color: #dc3545; /* Red color for button borders */
+    background-color: #f79420; /* Red color for primary buttons */
+    border-color: #f79420; /* Red color for button borders */
 }
 
 .btn-primary:hover {
-    background-color: #c82333; /* Darker red on hover */
-    border-color: #bd2130; /* Darker red for border on hover */
+    background-color: #000000; /* Darker red on hover */
+    border-color: #ffffff; /* Darker red for border on hover */
 }
 
 .btn-block {
     display: block;
     width: 100%;
 }
+
+
 
 /* Card Styles */
 .card {
@@ -137,14 +136,17 @@ footer {
     text-align: center;
 }
 
-footer a {
-    color: #dc3545;
-    text-decoration: none;
+
+/* Footer */
+footer {
+    background: #000000;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
-footer a:hover {
-    color: #c82333;
-    text-decoration: underline;
+footer a {
+    color: #ffc107;
 }
 
 /* Login and Register Page Styles */
