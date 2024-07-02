@@ -15,7 +15,7 @@
                     <h1 class="card-title">{{ product.name }}</h1>
                     <p class="card-text text-muted">Category: {{ product.category.name }}</p>
                     <p class="card-text">{{ product.description }}</p>
-                    <p class="card-text"><strong>Price: ${{ product.price }}</strong></p>
+                    <p class="card-text"><strong>Price: LKR {{ product.price }}</strong></p>
                     <p class="card-text">Stock: {{ product.stock }}</p>
 
                     <!-- Form to add product to cart -->
@@ -30,7 +30,35 @@
             </div>
         </div>
     </div>
-
+      <!-- Review Form -->
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Leave a Review</h2>
+            <form method="post" action="{% url 'add_review' product.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="review">Review</label>
+                    <textarea class="form-control" id="review" name="review" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
+            </form>
+        </div>
+    </div>
+      <!-- Display Reviews -->
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Reviews</h2>
+            {% if reviews %}
+                <ul class="list-group">
+                    {% for review in reviews %}
+                        <li class="list-group-item">{{ review }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews yet.</p>
+            {% endif %}
+        </div>
+    </div>
     <!-- Related Products Section -->
     <div class="row mt-5">
         <div class="col">
@@ -52,35 +80,5 @@
         {% endfor %}
     </div>
 
-    <!-- Review Form -->
-    <div class="row mt-5">
-        <div class="col">
-            <h2>Leave a Review</h2>
-            <form method="post" action="{% url 'add_review' product.id %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="review">Review</label>
-                    <textarea class="form-control" id="review" name="review" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Display Reviews -->
-    <div class="row mt-5">
-        <div class="col">
-            <h2>Reviews</h2>
-            {% if reviews %}
-                <ul class="list-group">
-                    {% for review in reviews %}
-                        <li class="list-group-item">{{ review }}</li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No reviews yet.</p>
-            {% endif %}
-        </div>
-    </div>
 </div>
 {% endblock %}
