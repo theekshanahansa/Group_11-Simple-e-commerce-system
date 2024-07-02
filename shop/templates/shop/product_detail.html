@@ -71,10 +71,10 @@
     <div class="row mt-5">
         <div class="col">
             <h2>Reviews</h2>
-            {% if messages %}
+            {% if reviews %}
                 <ul class="list-group">
-                    {% for message in messages %}
-                        <li class="list-group-item">{{ message }}</li>
+                    {% for review in reviews %}
+                        <li class="list-group-item">{{ review }}</li>
                     {% endfor %}
                 </ul>
             {% else %}

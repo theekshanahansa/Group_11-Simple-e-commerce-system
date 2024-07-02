@@ -6,6 +6,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
 from .models import Category, Product
+import json
+import os
+from django.contrib import messages
 
 
 def home(request):
@@ -77,23 +80,45 @@ def product_by_category(request, category_id):
 
 
 # View to show product details
-from django.contrib import messages
-from .models import Product
+# File to store reviews
+REVIEWS_FILE = 'reviews.json'
+
+
+def load_reviews():
+    if os.path.exists(REVIEWS_FILE):
+        with open(REVIEWS_FILE, 'r') as file:
+            return json.load(file)
+    return {}
+
+
+def save_reviews(reviews):
+    with open(REVIEWS_FILE, 'w') as file:
+        json.dump(reviews, file)
+
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     related_products = Product.objects.filter(category=product.category).exclude(id=product_id)[:3]
 
+    reviews = load_reviews().get(str(product_id), [])
+
     return render(request, 'shop/product_detail.html', {
         'product': product,
         'related_products': related_products,
+        'reviews': reviews,
     })
+
 
 def add_review(request, product_id):
     if request.method == 'POST':
         review = request.POST.get('review')
         if review:
-            messages.info(request, review)
+            reviews = load_reviews()
+            product_reviews = reviews.get(str(product_id), [])
+            product_reviews.append(review)
+            reviews[str(product_id)] = product_reviews
+            save_reviews(reviews)
+            messages.success(request, 'Review submitted successfully.')
     return redirect('product_detail', product_id=product_id)
 
 
