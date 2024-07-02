@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee8f6;
     padding-top: 30px; /* Adjust based on navbar height */
 }
 .container-fluid {
@@ -12,25 +12,35 @@ body {
 
 .btn-primary {
     margin-top: 10px;
-    background-color: #f79420; /* Adjusted color */
-    border-color: #f79420; /* Adjusted color */
+    background-color: #3d52a1; /* Adjusted color */
+    border-color: #3d52a1; /* Adjusted color */
 }
 
 .btn-primary:hover {
-    background-color: #e6831e; /* Adjusted color */
-    border-color: #e6831e; /* Adjusted color */
+    background-color: #7191e6; /* Adjusted color */
+    border-color: #7191e6; /* Adjusted color */
+}
+.btn-secondary {
+    margin-top: 10px;
+    background-color: #1a1a45; /* Red color for primary buttons */
+    border-color: #1a1a45;
+
+}
+
+.btn-secondary:hover {
+    background-color: #000000; /* Darker red on hover */
+    border-color: #ffffff; /* Darker red for border on hover */
 }
 
 /* Hero Section */
 .hero {
     background-position: center;
     height: 500px;
-    color: white;
     position: relative;
     background: url('123.jpg') center center no-repeat;
     background-size: cover; /* Ensure the image covers the container */
     height: 75vh;
-    color: white;
+    color: #27293a;
     text-align: center;
     display: flex;
     align-items: center;
@@ -38,11 +48,12 @@ body {
 }
 
 .hero-content {
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    color: #ffffff;
+    font-size: 4.5rem;
     font-weight: bold;
 }
 
@@ -71,7 +82,7 @@ body {
 
 /* Footer */
 footer {
-    background: #000000;
+    background: #27283a;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -127,13 +138,13 @@ footer a {
 
 .card .btn {
     margin-top: auto;
-    background-color: #f79420;
-    border-color: #f79420;
+    background-color: #3d52a1b;
+    border-color: #3d52a1;
 }
 
 .card .btn:hover {
-    background-color: black;
-    border-color: black;
+    background-color: #27283b;
+    border-color: #27283b;
 }
 
 /* Category Filter Styles */
@@ -178,8 +189,8 @@ footer a {
 }
 
 .category-card .btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #3d52a1;
+    border-color: #3d52a1;
     margin-top: auto; /* Pushes the button to the bottom */
 }
 
@@ -187,3 +198,4 @@ footer a {
     background-color: #c82333;
     border-color: #bd2130;
 }
+

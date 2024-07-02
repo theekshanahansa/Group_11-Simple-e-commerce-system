@@ -1,22 +1,22 @@
 .navbar {
-    background-color: #f79420; /* Dark background for navbar */
+    background-color: #adbada; /* Dark background for navbar */
 }
 
 .navbar-brand {
     color: #ffffff !important; /* White color for navbar brand */
-     margin-right: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem; /* Adjust the brand font size as needed */
 }
 
 .navbar-nav .nav-link {
     color: #ffffff !important; /* White color for navbar links */
-    margin-left:30px;
-
+    margin-left: 30px;
+    font-size: 1.2rem; /* Adjust the font size for navigation links */
 }
 
 .navbar-nav {
     margin-left: auto;
 }
-
 
 .navbar-nav .nav-link {
     color: #ffffff; /* Text color */
@@ -27,7 +27,7 @@
 }
 
 .navbar-nav .dropdown-menu {
-    background-color: #343a40; /* Dropdown menu background color */
+    background-color: #8697c3; /* Dropdown menu background color */
 }
 
 .navbar-nav .dropdown-menu .dropdown-item {
@@ -35,7 +35,7 @@
 }
 
 .navbar-nav .dropdown-menu .dropdown-item:hover {
-    background-color: #495057; /* Hover background color for dropdown items */
+    background-color: #adbada; /* Hover background color for dropdown items */
     color: #ffffff; /* Hover text color for dropdown items */
 }
 
@@ -47,4 +47,19 @@
     .navbar {
         padding: 0.5rem;
     }
+}
+
+.btn-4 {
+    background-color: #f79420; /* Red color for primary buttons */
+    border-color: #f79420; /* Red color for button borders */
+}
+
+.btn-4:hover {
+    background-color: #000000; /* Darker red on hover */
+    border-color: #ffffff; /* Darker red for border on hover */
+}
+
+.btn-4 {
+    display: block;
+    width: 100%;
 }

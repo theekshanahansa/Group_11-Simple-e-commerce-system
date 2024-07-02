@@ -1,11 +1,10 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* Updated background color */
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee8f6; /* Updated background color */
     padding-top: 56px; /* Adjust based on navbar height */
-    margin-left:0px
+    margin-left: 0px;
 }
-
 
 /* Navbar Styles */
 .navbar {
@@ -15,19 +14,20 @@ body {
 /* Button Styles */
 .btn-primary {
     margin-top: 10px;
-    background-color: #f79420; /* Red color for primary buttons */
-    border-color: #f79420; /* Red color for button borders */
+    background-color: #3d52a1; /* Red color for primary buttons */
+    border-color: #3d52a1; /* Red color for button borders */
 }
-.btn-secondary{
+
+.btn-secondary {
     margin-top: 10px;
     background-color: #000000; /* Red color for primary buttons */
     border-color: #000000;
-    width:200px;
+    width: 200px;
 }
 
 .btn-primary:hover {
-    background-color: #000000; /* Darker red on hover */
-    border-color: #ffffff; /* Darker red for border on hover */
+    background-color: #05db00; /* Darker red on hover */
+    border-color: #05db00; /* Darker red for border on hover */
 }
 
 .btn-block {
@@ -35,18 +35,8 @@ body {
     width: 100%;
 }
 
-
-
 /* Card Styles */
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    order: none; /* Remove default card border */
-    border-radius: 10px;
-}
+
 .card-body {
     display: flex;
     flex-direction: column;
@@ -54,15 +44,31 @@ body {
     flex-grow: 1;
 }
 
-
 .card-title {
-    font-size: 1.5rem; /* Larger font size for the card title */
+    font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 20px;
 }
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.card .btn {
+    margin-top: auto;
+    background-color: #3d52a1b;
+    border-color: #3d52a1;
+}
+
+.card .btn:hover {
+    background-color: #27283b;
+    border-color: #27283b;
+}
+
 .img-fluid.rounded-start {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
 
 /* Form Styles */
 .form-label {
@@ -135,11 +141,13 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .card-filter {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 56px; /* Adjust based on your navbar height */
 }
+
 .filter-container {
     margin-bottom: 20px;
     padding: 15px;
@@ -240,7 +248,6 @@ footer a {
     color: #6c757d;
 }
 
-
 /* Product Detail Styles */
 .img-fluid.rounded-start {
     border-top-left-radius: 10px;
@@ -250,6 +257,7 @@ footer a {
 .img-fluid.rounded-end {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
 
 /* Reviews Section */
 .list-group-item {
@@ -262,6 +270,7 @@ footer a {
 .list-group-item:last-child {
     border-bottom: none; /* Remove bottom border for the last item */
 }
+
 /* Media Queries */
 @media (max-width: 768px) {
     .card {
@@ -271,4 +280,32 @@ footer a {
     .img-fluid.rounded-start, .img-fluid.rounded-end {
         border-radius: 10px;
     }
+}
+
+/* Newsletter Section */
+.newsletter {
+    background-color: #f9f9f9;
+    padding: 3rem 0;
+}
+
+.newsletter h2 {
+    margin-bottom: 1.5rem;
+}
+
+.newsletter .input-group {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter .form-control {
+    border: 2px solid #007bff;
+    border-right: 0;
+    border-radius: 4px 0 0 4px; /* Rounded corners */
+    height: 45px; /* Increase input height for better alignment */
+}
+
+.newsletter .btn-primary {
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 0 4px 4px 0; /* Rounded corners */
+    height: 45px; /* Increase button height for better alignment */
 }

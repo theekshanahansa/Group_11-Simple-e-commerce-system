@@ -1,11 +1,35 @@
 /* cart-styles.css */
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee8f6;
     padding-top: 56px; /* Adjust based on navbar height */
 }
 
+
+* Button Styles */
+.btn-primary {
+    margin-top: 10px;
+    background-color: #3d52a1; /* Red color for primary buttons */
+    border-color: #3d52a1; /* Red color for button borders */
+}
+
+.btn-secondary {
+    margin-top: 10px;
+    background-color: #8697c3; /* Red color for primary buttons */
+    border-color: #8697c3;
+    width: 200px;
+}
+
+.btn-primary:hover {
+    background-color: #27283b; /* Darker red on hover */
+    border-color: #27283b; /* Darker red for border on hover */
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
 
 h1 {
     font-size: 2.5rem;
