@@ -9,6 +9,30 @@ body {
     max-width: 960px;
 }
 
+* Button Styles */
+.btn-primary {
+    margin-top: 10px;
+    background-color: #3d52a1; /* Red color for primary buttons */
+    border-color: #3d52a1; /* Red color for button borders */
+}
+
+.btn-secondary {
+    margin-top: 10px;
+    background-color: #8697c3; /* Red color for primary buttons */
+    border-color: #8697c3;
+    width: 200px;
+}
+
+.btn-primary:hover {
+    background-color: #27283b; /* Darker red on hover */
+    border-color: #27283b; /* Darker red for border on hover */
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
 .card {
     border: none;
     border-radius: 10px;
@@ -33,9 +57,4 @@ body {
 
 .table {
     margin-bottom: 0;
-}
-
-.btn-block {
-    display: block;
-    width: 100%;
 }

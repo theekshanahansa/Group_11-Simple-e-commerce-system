@@ -6,7 +6,7 @@
 <div class="row">
 
     <div class="col-lg-3 col-md-4 col-sm-12 mt-3">
-        <div class="card-filter">
+        <div class="card-filter card">
             <div class="filter-container card mb-4">
                 <h5 class="card-header">Filter by Category</h5>
                 <div class="card-body">
@@ -20,7 +20,6 @@
                         <li class="list-group-item"><a href="{% url 'product_list' %}?category=Cricket">Cricket</a></li>
                         <li class="list-group-item"><a href="{% url 'product_list' %}?category=Running">Running</a></li>
                         <li class="list-group-item"><a href="{% url 'product_list' %}?category=Fitness">Fitness</a></li>
-
                     </ul>
                 </div>
             </div>
@@ -33,6 +32,7 @@
                         <span>0</span>
                         <span>60000</span>
                     </div>
+                    <p> Price LKR 0 to <span id="selectedPrice">{{ request.GET.price|default:60000 }}</span></p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                         <div>
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description }}</p>
-                            <p class="card-text"><strong>LKR {{ product.price }}</strong></p>
+                            <p class="card-title"><strong>LKR {{ product.price }}</strong></p>
                         </div>
                         <a href="{% url 'product_detail' product_id=product.id %}" class="btn btn-primary mt-auto">View Details</a>
                     </div>
@@ -59,12 +59,19 @@
         </div>
     </div>
 </div>
+
 <script>
     function updatePriceFilter(value) {
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.set('price', value);
-    window.location.search = urlParams.toString();
-}
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set('price', value);
+        window.location.search = urlParams.toString();
+        document.getElementById('selectedPrice').innerText = value; // Update the displayed price
+    }
 
+    // Ensure the displayed price is updated on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const priceRange = document.getElementById('priceRange');
+        document.getElementById('selectedPrice').innerText = priceRange.value;
+    });
 </script>
 {% endblock %}

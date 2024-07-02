@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* Updated background color */
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee8f6; /* Updated background color */
     padding-top: 56px; /* Adjust based on navbar height */
     margin-left: 0px;
 }
@@ -14,8 +14,8 @@ body {
 /* Button Styles */
 .btn-primary {
     margin-top: 10px;
-    background-color: #f79420; /* Red color for primary buttons */
-    border-color: #f79420; /* Red color for button borders */
+    background-color: #3d52a1; /* Red color for primary buttons */
+    border-color: #3d52a1; /* Red color for button borders */
 }
 
 .btn-secondary {
@@ -26,8 +26,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #000000; /* Darker red on hover */
-    border-color: #ffffff; /* Darker red for border on hover */
+    background-color: #05db00; /* Darker red on hover */
+    border-color: #05db00; /* Darker red for border on hover */
 }
 
 .btn-block {
@@ -36,15 +36,6 @@ body {
 }
 
 /* Card Styles */
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    border: none; /* Remove default card border */
-    border-radius: 10px;
-}
 
 .card-body {
     display: flex;
@@ -54,9 +45,24 @@ body {
 }
 
 .card-title {
-    font-size: 1.5rem; /* Larger font size for the card title */
+    font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 20px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.card .btn {
+    margin-top: auto;
+    background-color: #3d52a1b;
+    border-color: #3d52a1;
+}
+
+.card .btn:hover {
+    background-color: #27283b;
+    border-color: #27283b;
 }
 
 .img-fluid.rounded-start {

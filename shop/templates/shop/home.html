@@ -35,9 +35,7 @@
                             <a class="nav-link dropdown-toggle" href="#" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Category </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"href="{% url 'product_by_category' 5 %}">Football
-                                <img src="{% static 'images/profile.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
-                                </a>
+                                <a class="dropdown-item"href="{% url 'product_by_category' 5 %}">Football</a>
                                 <a class="dropdown-item" href="{% url 'product_by_category' 6 %}">Basketball</a>
                                 <a class="dropdown-item" href="{% url 'product_by_category' 4 %}">Cricket</a>
                                 <a class="dropdown-item" href="{% url 'product_by_category' 7 %}">Running</a>
@@ -93,7 +91,7 @@
     </div>
 
     <div class="container-fluid mt-3  no-margins">
-        <h2 class="text-center">Featured Products</h2>
+        <h2 class="text-center text-#000000 ">Featured Products</h2>
         <div class="row">
             {% for product in featured_products %}
             <div class="col-md-3 mb-4">
@@ -101,7 +99,7 @@
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.price }}</p>
+                        <p class="card-text">LKR {{ product.price }}</p>
                     </div>
                     <a href="{% url 'product_detail' product_id=product.id %}" class="btn btn-primary">View Product</a>
 
@@ -186,7 +184,7 @@
 
 
 
-    <section class="latest-news py-5 bg-light">
+    <section class="latest-news py-5 ">
       <div class="container">
         <h2 class="text-center mb-4">Latest News & Updates</h2>
         <div class="row">
