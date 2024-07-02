@@ -50,7 +50,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 100%;
+    order: none; /* Remove default card border */
+    border-radius: 10px;
 }
 .card-body {
     display: flex;
@@ -251,4 +254,37 @@ footer a {
 .customer-reviews .card-text {
     font-size: 1rem;
     color: #6c757d;
+}
+
+
+/* Product Detail Styles */
+.img-fluid.rounded-start {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.img-fluid.rounded-end {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+/* Reviews Section */
+.list-group-item {
+    border: none; /* Remove default border */
+    border-bottom: 1px solid #ddd; /* Add bottom border */
+    margin-bottom: 10px;
+    padding: 15px 10px; /* Add padding */
+}
+
+.list-group-item:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+}
+/* Media Queries */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 10px;
+    }
+
+    .img-fluid.rounded-start, .img-fluid.rounded-end {
+        border-radius: 10px;
+    }
 }
