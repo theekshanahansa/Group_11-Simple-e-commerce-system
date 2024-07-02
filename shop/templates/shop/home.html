@@ -110,8 +110,39 @@
             {% endfor %}
         </div>
     </div>
+ <section class="testimonials py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">What Our Customers Are Saying</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div><img src="{% static 'images/customer1.jpg' %}" alt="Customer 1" class="rounded-circle img-fluid"></div>
+                        <p>"Game Day has completely transformed my gaming experience! Their product selection is unbeatable and the customer service is top-notch."</p>
+                        <h5>- John Doe</h5>
+                        <small>Professional Gamer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div><img src="{% static 'images/customer2.jpg' %}" alt="Customer 1" class="rounded-circle img-fluid"></div>
+                        <p>"I found everything I needed for my gaming setup in one place. The prices are great and the quality is outstanding. Highly recommend Game Day!"</p>
+                        <h5>- Sarah Smith</h5>
+                        <small>Casual Gamer</small>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <div><img src="{% static 'images/customer3.jpg' %}" alt="Customer 1" class="rounded-circle img-fluid"></div>
+                        <p>"As a streamer, I need reliable and high-quality equipment. Game Day delivers on both fronts. My viewers have noticed the improvement in my streams!"</p>
+                        <h5>- Alex Johnson</h5>
+                        <small>Streamer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="popular-categories">
+    <div class="popular-categories bg-light">
         <h2 class="text-center text-white mb-4">Popular Categories</h2>
         <div class="row">
             <div class="col-md-3">
@@ -152,78 +183,60 @@
             </div>
         </div>
     </div>
-    <section class="customer-reviews py-5">
-        <div class="container">
-            <h2 class="text-center">What Our Customers Are Saying</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="review text-center">
-                        <img src="{% static 'images/customer1.jpg' %}" alt="Customer 1" class="rounded-circle img-fluid">
-                        <p class="mt-3">"Great products and excellent customer service!"</p>
-                        <h5>Customer 1</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review text-center">
-                        <img src="{% static 'images/customer2.jpg' %}" alt="Customer 2" class="rounded-circle img-fluid">
-                        <p class="mt-3">"I love shopping here, always find what I need."</p>
-                        <h5>Customer 2</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review text-center">
-                        <img src="{% static 'images/customer3.jpg' %}" alt="Customer 3" class="rounded-circle img-fluid">
-                        <p class="mt-3">"Fast delivery and quality products, highly recommend!"</p>
-                        <h5>Customer 3</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
 
     <section class="latest-news py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center">Latest News & Updates</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="news-item">
-                        <img src="{% static 'images/news1.jpg' %}" alt="News 1" class="img-fluid">
-                        <h5 class="mt-3">News Title 1</h5>
-                        <p>Brief description of the news content.</p>
-                        <a href="#" class="btn btn-outline-secondary">Read More</a>
+      <div class="container">
+        <h2 class="text-center mb-4">Latest News & Updates</h2>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'images/news1.jpg' %}" class="card-img-top" alt="News Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Exciting New Product Launch</h5>
+                        <p class="card-text">We're thrilled to announce the launch of our latest product that will revolutionize your experience. Check it out now!</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="news-item">
-                        <img src="{% static 'images/news2.jpg' %}" alt="News 2" class="img-fluid">
-                        <h5 class="mt-3">News Title 2</h5>
-                        <p>Brief description of the news content.</p>
-                        <a href="#" class="btn btn-outline-secondary">Read More</a>
+            </div>
+            <!-- News Item 2 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{% static 'images/news2.jpg' %}" class="card-img-top" alt="News Image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Holiday Sale Coming Soon</h5>
+                        <p class="card-text">Get ready for our annual holiday sale with huge discounts on your favorite products. Stay tuned for more details!</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="news-item">
-                        <img src="{% static 'images/news3.jpg' %}" alt="News 3" class="img-fluid">
-                        <h5 class="mt-3">News Title 3</h5>
-                        <p>Brief description of the news content.</p>
-                        <a href="#" class="btn btn-outline-secondary">Read More</a>
+            </div>
+            <!-- News Item 3 -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                     <img src="{% static 'images/news3.jpg' %}" class="card-img-top" alt="News Image 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Community Event Highlights</h5>
+                        <p class="card-text">We recently hosted a community event that brought together amazing people and ideas. Check out the highlights and photos!</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <section class="newsletter py-5">
         <div class="container">
             <h2 class="text-center">Subscribe to Our Newsletter</h2>
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-8 col-lg-6">
                     <form action="{% url 'subscribe' %}" method="post">
                         {% csrf_token %}
                         <div class="input-group">
                             <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                                <button type="submit" class="btn btn-4">Subscribe</button>
                             </div>
                         </div>
                     </form>
@@ -231,6 +244,8 @@
             </div>
         </div>
     </section>
+
+
 
     <footer class="mt-5">
         <div class="container">

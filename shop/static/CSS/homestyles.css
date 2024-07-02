@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee8f6;
     padding-top: 30px; /* Adjust based on navbar height */
 }
 .container-fluid {
@@ -25,12 +25,11 @@ body {
 .hero {
     background-position: center;
     height: 500px;
-    color: white;
     position: relative;
     background: url('123.jpg') center center no-repeat;
     background-size: cover; /* Ensure the image covers the container */
     height: 75vh;
-    color: white;
+    color: #27293a;
     text-align: center;
     display: flex;
     align-items: center;
@@ -42,7 +41,8 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    color: #ffffff;
+    font-size: 4.5rem;
     font-weight: bold;
 }
 
