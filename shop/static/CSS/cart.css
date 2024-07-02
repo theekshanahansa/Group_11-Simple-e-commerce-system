@@ -6,9 +6,6 @@ body {
     padding-top: 56px; /* Adjust based on navbar height */
 }
 
-.container {
-    max-width: 800px;
-}
 
 h1 {
     font-size: 2.5rem;
@@ -74,20 +71,3 @@ h1 {
         height: 60px;
     }
 }
-.navbar {
-    background-color: #f79420; /* Dark background for navbar */
-}
-
-.navbar-brand {
-    color: #ffffff !important; /* White color for navbar brand */
-}
-
-.navbar-nav .nav-link {
-    color: #000000 !important; /* White color for navbar links */
-}
-
-.wrapper {
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-        }

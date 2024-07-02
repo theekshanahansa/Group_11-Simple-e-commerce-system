@@ -47,7 +47,7 @@ def login_view(request):
 # User logout view
 def logout_view(request):
     logout(request)
-    return redirect('product_list')
+    return redirect('home')
 
 
 def product_list(request):
@@ -230,3 +230,22 @@ def products_by_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     products = Product.objects.filter(category=category)
     return render(request, 'shop/products_by_category.html', {'category': category, 'products': products})
+
+
+def about_us(request):
+    return render(request, 'shop/about.html')
+
+
+# In views.py
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        # Process the email (e.g., save to the database)
+        # For now, just print it to the console (for demonstration purposes)
+        print(f"Subscribed email: {email}")
+        return HttpResponse("Thank you for subscribing!")
+    return redirect('home')
