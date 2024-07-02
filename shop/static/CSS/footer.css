@@ -5,8 +5,12 @@ footer {
     color: white;
     padding: 20px 0;
     text-align: center;
+    margin-top: 0px;
 }
 
 footer a {
     color: #ffc107;
 }
+.mt-5 {
+            margin-top: 50px; /* Adjust this margin if necessary */
+        }
