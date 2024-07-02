@@ -6,7 +6,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
 from .models import Category, Product
-from .models import Product, Category, Review
+import json
+import os
+from django.contrib import messages
+
 
 def home(request):
     featured_products = Product.objects.filter(id__in=[13, 10, 8, 12, 5, 6]).union(Product.objects.all()[:0])
@@ -44,7 +47,7 @@ def login_view(request):
 # User logout view
 def logout_view(request):
     logout(request)
-    return redirect('product_list')
+    return redirect('home')
 
 
 def product_list(request):
@@ -77,22 +80,46 @@ def product_by_category(request, category_id):
 
 
 # View to show product details
-# views.py
-from .models import Product
+# File to store reviews
+REVIEWS_FILE = 'reviews.json'
 
-4
+
+def load_reviews():
+    if os.path.exists(REVIEWS_FILE):
+        with open(REVIEWS_FILE, 'r') as file:
+            return json.load(file)
+    return {}
+
+
+def save_reviews(reviews):
+    with open(REVIEWS_FILE, 'w') as file:
+        json.dump(reviews, file)
 
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     related_products = Product.objects.filter(category=product.category).exclude(id=product_id)[:3]
 
-    context = {
+    reviews = load_reviews().get(str(product_id), [])
+
+    return render(request, 'shop/product_detail.html', {
         'product': product,
         'related_products': related_products,
-    }
+        'reviews': reviews,
+    })
 
-    return render(request, 'shop/product_detail.html', context)
+
+def add_review(request, product_id):
+    if request.method == 'POST':
+        review = request.POST.get('review')
+        if review:
+            reviews = load_reviews()
+            product_reviews = reviews.get(str(product_id), [])
+            product_reviews.append(review)
+            reviews[str(product_id)] = product_reviews
+            save_reviews(reviews)
+            messages.success(request, 'Review submitted successfully.')
+    return redirect('product_detail', product_id=product_id)
 
 
 # View to add a product to the cart
@@ -203,3 +230,22 @@ def products_by_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     products = Product.objects.filter(category=category)
     return render(request, 'shop/products_by_category.html', {'category': category, 'products': products})
+
+
+def about_us(request):
+    return render(request, 'shop/about.html')
+
+
+# In views.py
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        # Process the email (e.g., save to the database)
+        # For now, just print it to the console (for demonstration purposes)
+        print(f"Subscribed email: {email}")
+        return HttpResponse("Thank you for subscribing!")
+    return redirect('home')

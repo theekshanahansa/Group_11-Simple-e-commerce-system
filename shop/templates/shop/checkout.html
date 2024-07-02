@@ -1,20 +1,91 @@
 <!DOCTYPE html>
-{% load static %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 </head>
 <body>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+                Gameday.lk
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'product_list' %}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item"href="{% url 'product_by_category' 5 %}">Football</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 6 %}">Basketball</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 4 %}">Cricket</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 7 %}">Running</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 8 %}">Fitness</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 10 %}">Tennis</a>
+                                <a class="dropdown-item" href="{% url 'product_by_category' 9 %}">Boxing</a>
+                        </div>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_cart' %}">
+                            <img src="{% static 'images/cart.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{% static 'images/profile.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+                            <i  class="fas fa-user-circle"></i> {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </div>
     <div class="container mt-4">
         <h1>Checkout</h1>
         <div class="checkout-container">
             <div class="card shadow p-4 mb-4">
-                <h3 class="mb-4">Order Summary</h3>
+                <h3 class="mb-4">Your Order Summary</h3>
                 <div class="cart-table-container mb-4">
                     <table class="table">
                         <thead>
@@ -66,6 +137,45 @@
         </div>
         <a href="{% url 'view_cart' %}" class="btn btn-secondary">Back to Cart</a>
     </div>
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li>123 Sports Avenue, Colombo, Sri Lanka</li>
+                        <li>Email: support@gameday.com</li>
+                        <li>Phone: +94 77 123 4567</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter" width="24" height="24"></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#"><img src="{% static 'images/instagram.png' %}" alt="Instagram" width="24" height="24"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; 2024 Gameday. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,3 +1,4 @@
+<!-- product_detail.html -->
 {% extends 'shop/base.html' %}
 
 {% block title %}{{ product.name }} - Gameday{% endblock %}
@@ -6,10 +7,10 @@
 <div class="container mt-4">
     <div class="card shadow">
         <div class="row g-0">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="{{ product.name }}">
             </div>
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <div class="card-body">
                     <h1 class="card-title">{{ product.name }}</h1>
                     <p class="card-text text-muted">Category: {{ product.category.name }}</p>
@@ -17,47 +18,47 @@
                     <p class="card-text"><strong>Price: LKR {{ product.price }}</strong></p>
                     <p class="card-text">Stock: {{ product.stock }}</p>
 
-                    <!-- Add to Cart Form -->
+                    <!-- Form to add product to cart -->
                     <form method="post" action="{% url 'add_to_cart' product.id %}">
                         {% csrf_token %}
-                        <div class="form-group">
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1" max="{{ product.stock }}">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-3">Add to Cart</button>
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </form>
 
-                    <!-- Add to Wishlist -->
-                    <form method="post" action="{% url 'add_to_wishlist' product.id %}" class="mt-3">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-secondary btn-block">Add to Wishlist</button>
-                    </form>
-
-                    <!-- Back to Products Link -->
-                    <a href="{% url 'product_list' %}" class="btn btn-secondary btn-block mt-3">Back to Products</a>
+                    <!-- Link to go back to the list of products -->
+                    <a href="{% url 'product_list' %}" class="btn btn-secondary mt-3">Back to Products</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Customer Reviews Section -->
+      <!-- Review Form -->
     <div class="row mt-5">
         <div class="col">
-            <h2>Customer Reviews</h2>
-            {% for review in product.reviews.all %}
-            <div class="card mb-3 shadow">
-                <div class="card-body">
-                    <h5 class="card-title">{{ review.user.username }}</h5>
-                    <p class="card-text">{{ review.comment }}</p>
-                    <p class="card-text text-muted">Rating: {{ review.rating }}/5</p>
+            <h2>Leave a Review</h2>
+            <form method="post" action="{% url 'add_review' product.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="review">Review</label>
+                    <textarea class="form-control" id="review" name="review" rows="3"></textarea>
                 </div>
-            </div>
-            {% empty %}
-            <p>No reviews yet. Be the first to review this product!</p>
-            {% endfor %}
+                <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
+            </form>
         </div>
     </div>
-
+      <!-- Display Reviews -->
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Reviews</h2>
+            {% if reviews %}
+                <ul class="list-group">
+                    {% for review in reviews %}
+                        <li class="list-group-item">{{ review }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews yet.</p>
+            {% endif %}
+        </div>
+    </div>
     <!-- Related Products Section -->
     <div class="row mt-5">
         <div class="col">
@@ -67,16 +68,17 @@
     <div class="row">
         {% for related_product in related_products %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow">
                 <img src="{{ related_product.image.url }}" class="card-img-top img-fluid rounded" alt="{{ related_product.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ related_product.name }}</h5>
-                    <p class="card-text"><strong>LKR {{ related_product.price }}</strong></p>
-                    <a href="{% url 'product_detail' product_id=related_product.id %}" class="btn btn-primary btn-block">View Details</a>
+                    <p class="card-text"><strong>${{ related_product.price }}</strong></p>
+                    <a href="{% url 'product_detail' product_id=related_product.id %}" class="btn btn-primary">View Details</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+
 </div>
 {% endblock %}
