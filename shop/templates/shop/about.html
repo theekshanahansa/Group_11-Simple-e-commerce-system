@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/logo.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
@@ -29,20 +29,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'product_list' %}">Products</a>
                     </li>
-                    <li class="nav-item">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Category </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"href="{% url 'product_by_category' 5 %}">Football</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 6 %}">Basketball</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 4 %}">Cricket</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 7 %}">Running</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 8 %}">Fitness</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 10 %}">Tennis</a>
-                                <a class="dropdown-item" href="{% url 'product_by_category' 9 %}">Boxing</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'product_by_category' 5 %}">Football</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 6 %}">Basketball</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 4 %}">Cricket</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 7 %}">Running</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 8 %}">Fitness</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 10 %}">Tennis</a>
+                            <a class="dropdown-item" href="{% url 'product_by_category' 9 %}">Boxing</a>
                         </div>
-                    </li>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
@@ -60,7 +59,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{% static 'images/profile.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-top">
-                            <i  class="fas fa-user-circle"></i> {{ user.username }}
+                            <i class="fas fa-user-circle"></i> {{ user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Profile</a>
@@ -79,6 +78,7 @@
             </div>
         </div>
     </nav>
+
     <div class="container mt-5">
         <h1 class="text-center">About Us</h1>
         <hr>
@@ -96,6 +96,58 @@
             <div class="col">
                 <h3>Our Team</h3>
                 <p>We are a passionate team of sports enthusiasts, committed to bringing you the best sports equipment and gear.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <h3>Our History</h3>
+                <p>Founded in 2010, Gameday has grown from a small startup to a leading name in the sports gear industry. Over the years, we have expanded our product range and customer base, always striving for excellence.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Core Values</h3>
+                <ul>
+                    <li>Customer Satisfaction</li>
+                    <li>Quality Assurance</li>
+                    <li>Integrity</li>
+                    <li>Innovation</li>
+                    <li>Community Engagement</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>What We Offer</h3>
+                <p>We offer a wide range of sports equipment and gear, including:</p>
+                <ul>
+                    <li>Football gear</li>
+                    <li>Basketball equipment</li>
+                    <li>Cricket gear</li>
+                    <li>Running shoes and apparel</li>
+                    <li>Fitness equipment</li>
+                    <li>Tennis gear</li>
+                    <li>Boxing equipment</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <h3>Customer Testimonials</h3>
+                <p>Here are some reviews from our satisfied customers:</p>
+                <div class="testimonial">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Absolutely love this product! Exceeded my expectations in every way." - John Doe</p>
+                    </blockquote>
+                </div>
+                <div class="testimonial">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"The quality is fantastic and the customer service was excellent. Highly recommend!" - Jane Smith</p>
+                    </blockquote>
+                </div>
+                <div class="testimonial">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"This is by far the best purchase I've made this year. Worth every penny!" - Michael Johnson</p>
+                    </blockquote>
+                </div>
             </div>
         </div>
     </div>
