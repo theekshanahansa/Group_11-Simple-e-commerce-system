@@ -11,7 +11,6 @@ class Category(models.Model):
 
 
 # Product model
-
 class Product(models.Model):
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

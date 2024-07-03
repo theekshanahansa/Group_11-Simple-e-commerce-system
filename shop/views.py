@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login as auth_login, authenticate, logout
 from .models import Category, Product, Cart, CartItem, Order, OrderItem
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
 from .models import Category, Product
 import json
 import os
 from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Cart, Order, OrderItem, Customer
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    featured_products = Product.objects.filter(id__in=[8,12,40,13,]).union(Product.objects.all()[:0])
+    featured_products = Product.objects.filter(id__in=[8, 12, 40, 13, ]).union(Product.objects.all()[:0])
     return render(request, 'shop/home.html', {'featured_products': featured_products})
 
 
@@ -84,6 +89,19 @@ def product_by_category(request, category_id):
 REVIEWS_FILE = 'reviews.json'
 
 
+def add_review(request, product_id):
+    if request.method == 'POST':
+        review = request.POST.get('review')
+        if review:
+            reviews = load_reviews()
+            product_reviews = reviews.get(str(product_id), [])
+            product_reviews.append(review)
+            reviews[str(product_id)] = product_reviews
+            save_reviews(reviews)
+            messages.success(request, 'Review submitted successfully.')
+    return redirect('product_detail', product_id=product_id)
+
+
 def load_reviews():
     if os.path.exists(REVIEWS_FILE):
         with open(REVIEWS_FILE, 'r') as file:
@@ -107,19 +125,6 @@ def product_detail(request, product_id):
         'related_products': related_products,
         'reviews': reviews,
     })
-
-
-def add_review(request, product_id):
-    if request.method == 'POST':
-        review = request.POST.get('review')
-        if review:
-            reviews = load_reviews()
-            product_reviews = reviews.get(str(product_id), [])
-            product_reviews.append(review)
-            reviews[str(product_id)] = product_reviews
-            save_reviews(reviews)
-            messages.success(request, 'Review submitted successfully.')
-    return redirect('product_detail', product_id=product_id)
 
 
 # View to add a product to the cart
@@ -151,27 +156,7 @@ def view_cart(request):
     return render(request, 'shop/cart.html', {'cart_items': cart_items})
 
 
-@login_required
-def order_confirmation(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
-
-    # Calculate total price for each order item
-    for item in order.orderitem_set.all():
-        item.total = item.quantity * item.price  # Calculate total price for the item
-
-    context = {
-        'order': order,
-    }
-    return render(request, 'shop/order_confirmation.html', context)
-
-
 # View to handle checkout
-# shop/views.py
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import Cart, Order, OrderItem, Customer
-
-
 @login_required
 def checkout(request):
     try:
@@ -223,7 +208,15 @@ def checkout(request):
 @login_required
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id)
-    return render(request, 'shop/order_confirmation.html', {'order': order})
+
+    # Calculate total price for each order item
+    for item in order.orderitem_set.all():
+        item.total = item.quantity * item.price  # Calculate total price for the item
+
+    context = {
+        'order': order,
+    }
+    return render(request, 'shop/order_confirmation.html', context)
 
 
 def products_by_category(request, category_id):
@@ -236,16 +229,12 @@ def about_us(request):
     return render(request, 'shop/about.html')
 
 
-# In views.py
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-
-
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        # Process the email (e.g., save to the database)
         # For now, just print it to the console (for demonstration purposes)
         print(f"Subscribed email: {email}")
         return HttpResponse("Thank you for subscribing!")
     return redirect('home')
+
+
