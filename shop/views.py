@@ -12,7 +12,7 @@ from django.contrib import messages
 
 
 def home(request):
-    featured_products = Product.objects.filter(id__in=[8,12,40,13]).union(Product.objects.all()[:0])
+    featured_products = Product.objects.filter(id__in=[8,12,40,13,]).union(Product.objects.all()[:0])
     return render(request, 'shop/home.html', {'featured_products': featured_products})
 
 
