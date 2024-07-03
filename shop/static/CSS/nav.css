@@ -50,13 +50,13 @@
 }
 
 .btn-4 {
-    background-color: #f79420; /* Red color for primary buttons */
-    border-color: #f79420; /* Red color for button borders */
+    background-color: #adbada; /* Red color for primary buttons */
+    border-color: #3d52a1; /* Red color for button borders */
 }
 
 .btn-4:hover {
-    background-color: #000000; /* Darker red on hover */
-    border-color: #ffffff; /* Darker red for border on hover */
+    background-color: #8697c3; /* Darker red on hover */
+    border-color: #8697c3; /* Darker red for border on hover */
 }
 
 .btn-4 {
